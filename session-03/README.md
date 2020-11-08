@@ -2,7 +2,7 @@
 
 # Exercise 03
 
-Implement the Word Index program using the **OO Styles**
+Implement the Word Index program using the **OO Styles**.
 
 The description of Word Index is the usual one:
 
