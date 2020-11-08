@@ -35,8 +35,6 @@ If you need to install multiple versions of python, I suggest you to use PyEnv. 
 Also PyEnv can be installed using Brew:
 ```brew install pyenv```
 
-> TODO: If you know other ways to manage different versions of Python let us know!
-
 #### 5. Install Python 3.7 using PyEnv
 List the available python versions:
 
@@ -63,8 +61,6 @@ Go to the download page for Windows at python.org and choose either the 32-bit o
 
 #### 2. Run the Installer
 Once you have chosen and downloaded an installer, simply run it by double-clicking on the downloaded file and check the box that says **Add Python 3.x to PATH** to ensure that the interpreter will be placed in your execution path.
-
-> TODO: If you know other ways to install and manage different versions of Python let us know!
 
 ### Install Python3.7 (for Linux)
 First of all, try to update the repositories and also install `software-properties-common` package using the following command:
@@ -195,7 +191,7 @@ choco install nodejs --version=10.23
 
 Please note that you need to run the PowerShell as administrator to install it. After that, `node` is accessible through any other Terminal.
 
-##### 3. Install NVM for Windows
+#### 3. Install NVM for Windows
 You can use [nvm for Windows](https://github.com/coreybutler/nvm-windows).
 This is not the same thing as nvm for Linux/Mac but it handles quite similar.
 Once nvm for Windows is installed (Instruction can be found in the linked github repo) the basic commands are the same:
@@ -208,11 +204,12 @@ nvm use 10.23
 
 
 #### Install NodeJs (Linux)
-If you have nvm already this works (on Ubuntu at least):
+If you have nvm already installed run (tested on Ubuntu):
 ```
 nvm install v10.23.0
 ```
-If you do not have nvm installed follow the instructions [here](https://tecadmin.net/install-nodejs-with-nvm/), using the above command in step 3.
+
+If you do not have nvm installed follow the instructions listed [here](https://tecadmin.net/install-nodejs-with-nvm/), using the above command in step 3.
 
 
 
