@@ -6,6 +6,10 @@ Set up and install the environments necessary for the exercises and the assignme
 We will use three different programming languages to implement the different styles: Python (3.7) for the exercises; Java (JDK 11) and JavaScript (NodeJS v10.23) for the assignments and some exercises. 
 
 ## Install Python 3.7
+- Creating the Python environment using Anaconda would be a good option in order to isolate different version of python on your local machine. To do so, you can follow the instructions below:
+1. [For Windows users](https://docs.anaconda.com/anaconda/install/windows/)
+2. [For Mac users](https://docs.anaconda.com/anaconda/install/mac-os/)
+3. [For Linux users](https://docs.anaconda.com/anaconda/install/linux/)
 
 ### Install Python3 (for Mac)
 Those instructions assume that either you have or are willing to install XCode and Home Brew (see [https://programwithus.com/learn-to-code/install-python3-mac/](https://programwithus.com/learn-to-code/install-python3-mac/)). If you prefer to install python3 manually, check: [https://www.saintlad.com/install-python-3-on-mac/](https://www.saintlad.com/install-python-3-on-mac/)
