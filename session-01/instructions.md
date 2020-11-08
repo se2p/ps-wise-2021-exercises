@@ -163,7 +163,11 @@ choco install nodejs --version=10.23
 Please note that you need to run the PowerShell as administrator to install it. After that, `node` is accessible through any other Terminal.
 
 #### Install NodeJs (Linux)
-> TODO Those instructions are missing... maybe you can add them?
+If you have nvm already this works (on Ubuntu at least):
+```
+nvm install v10.23.0
+```
+If you do not have nvm installed follow the instructions [here](https://tecadmin.net/install-nodejs-with-nvm/), using the above command in step 3.
 
 ### Install an IDE
 You are free to use any IDE for programming. Common choices are:
