@@ -151,7 +151,7 @@ node --version
 ```
 
 ### Install NodeJs (Windows)
-There are two possible ways for installing  NodeJS under Windows.
+There are three possible ways for installing  NodeJS under Windows.
 
 #### 1. Install NodeJs using the official installer
 You can find [this page](https://nodejs.org/en/download/) to download and use the official installer. For installing version 10.23, you can use [this link](https://nodejs.org/dist/latest-v10.x/). There you can choose `node-v10.23.0-x64.msi` in case your Windows machine is 64-bit.
@@ -165,6 +165,18 @@ choco install nodejs --version=10.23
 ```
 
 Please note that you need to run the PowerShell as administrator to install it. After that, `node` is accessible through any other Terminal.
+
+##### 3. Install NVM for Windows
+You can use [nvm for Windows](https://github.com/coreybutler/nvm-windows).
+This is not the same thing as nvm for Linux/Mac but it handles quite similar.
+Once nvm for Windows is installed (Instruction can be found in the linked github repo) the basic commands are the same:
+```
+nvm install 10.23
+```
+```
+nvm use 10.23
+``` 
+
 
 #### Install NodeJs (Linux)
 If you have nvm already this works (on Ubuntu at least):
