@@ -41,6 +41,23 @@ Also PyEnv can be installed using Brew:
 
 > TODO: If you know other ways to manage different versions of Python let us know!
 
+#### 5. Install Python 3.7 using PyEnv
+List the available python versions:
+
+```
+pyenv install --list | grep "3.7"
+```
+
+Select the one you want (e.g., 3.7.7)
+
+```
+pyenv install -v 3.7.7
+```
+
+(wait patiently...)
+
+Instructions taken from [here](https://realpython.com/intro-to-pyenv/)
+
 ### Install Python3.7 (for Window)
 The following instructions were taken from:
 [https://realpython.com/installing-python/#step-1-download-the-python-3-installer](https://realpython.com/installing-python/#step-1-download-the-python-3-installer)
@@ -131,10 +148,19 @@ You can install `nvm` using Homebrew:
 brew install nvm
 ```
 
+
+
 Once you have nvm, you can install the version of node that you need:
 
 ```
 nvm install 10.23
+mkdir ~/.nvm
+```
+Copy the following inside your ~/.bash_profile
+
+```
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 ```
 
 Before you can start using this version of node you need to enable it
@@ -184,6 +210,8 @@ If you have nvm already this works (on Ubuntu at least):
 nvm install v10.23.0
 ```
 If you do not have nvm installed follow the instructions [here](https://tecadmin.net/install-nodejs-with-nvm/), using the above command in step 3.
+
+
 
 ### Install an IDE
 You are free to use any IDE for programming. Common choices are:

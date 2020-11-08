@@ -37,7 +37,7 @@ Inside the `task-03` folder, you find the empty file `WordIndex.java` that you h
 
 > **BONUS**: Implement a simple `makefile` to build the program and test it.
 
-## Task 4: Free Flow - Java
+## Task 4: Free Flow - JavaScript
 
 Re-implement the Word Index program without using any style (**Free Flow**), but use Javascript this time. As before, implement three unit tests using [`mocha`](https://mochajs.org/).
 
