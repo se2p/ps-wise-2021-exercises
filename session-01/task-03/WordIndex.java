@@ -21,26 +21,6 @@ public class WordIndex {
 
 	}
 
-	/**
-	 * # Global "constants"
-	 * 
-	 * # Defining a main method makes testing easier class WordIndexData:
-	 * 
-	 * def __init__(self, word): self.word = word self.frequency = 0 self.pages =
-	 * set()
-	 * 
-	 * def appear_on(self, page): """ Increment frequency of occurrences and store
-	 * page without duplicates""" self.frequency += 1 self.pages.add(page)
-	 * 
-	 * 
-	 * 
-	 * def main(file_path): stop_words = [] word_index = []
-	 * 
-	 * 
-	 * 
-	 * @param args
-	 * @throws FileNotFoundException
-	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		int currentPage = 0;
 		int lineNumber = 0;
@@ -55,6 +35,9 @@ public class WordIndex {
 				}
 
 				for (String word : parseLine(scanner.nextLine())) {
+
+					// Q: Can we get automatically a word in lower case?
+					word = word.toLowerCase();
 
 					if (stopWords.contains(word)) {
 						continue;
@@ -81,11 +64,12 @@ public class WordIndex {
 
 		List<String> sortedWords = new ArrayList<String>(pages.keySet());
 		Collections.sort(sortedWords);
-		
-		for(String word : sortedWords ) {
+
+		for (String word : sortedWords) {
 			List<Integer> sortedPages = new ArrayList<Integer>(pages.get(word));
 			Collections.sort(sortedPages);
-			System.out.println(String.format("%s - %s", word, sortedPages.toString().replace("[", "").replace("]", "")));
+			System.out.println(
+					String.format("%s - %s", word, sortedPages.toString().replace("[", "").replace("]", "")));
 		}
 	}
 }
