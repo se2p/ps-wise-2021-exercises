@@ -5,6 +5,12 @@
 Set up and install the environments necessary for the exercises and the assignments in this course. 
 We will use three different programming languages to implement the different styles: Python (3.7) for the exercises; Java (JDK 11) and JavaScript (NodeJS v10.23) for the assignments and some exercises. 
 
+**Note for Windows users:**
+Pay attention that Windows 10 has introduced the Windows Subsystem for Linux (WSL) feature, which lets you run Linux distributions on your Windows machine in a true and native way.
+If you install WSL you can proceed with the instructions for Linux platforms and run all the commands inside WSL eliminating the problems which may occur under Windows setup.
+To install WSL see https://docs.microsoft.com/en-us/windows/wsl/install-win10.
+Note also that WSL works best with VS Code (see https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode), and other IDEs may be limited or face problems when working in WSL.
+
 ## Install Python 3.7
 
 ### Install Python3 (for Mac)
