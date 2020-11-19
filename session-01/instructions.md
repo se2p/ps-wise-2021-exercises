@@ -167,7 +167,42 @@ choco install nodejs --version=10.23
 Please note that you need to run the PowerShell as administrator to install it. After that, `node` is accessible through any other Terminal.
 
 #### Install NodeJs (Linux)
-> TODO Those instructions are missing... maybe you can add them?
+There are three different ways to install NodeJs on Linux but the best way to be sure about the version 10.23 is via nvm.
+> NOTE: This toturial is for Ubuntu 20.04 but you can find the full article (here)[https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04]
+
+###### install NodeJs V10.23 using nvm
+1. Run one the following commands:
+> (Take a deeper look at the source repo here)[curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash]
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+```
+or
+```
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+```
+2. After that 
+```
+source ~/.bashrc
+```
+3. To see all available versions to install run the following command
+```
+nvm list-remote
+```
+4. To install V10.23
+```
+nvm install v10.23
+```
+Now you have successfully installed NodeJs v10.23. To see all installed NodeJs versions on your machine use:
+```
+nvm list
+```
+Finally, if you have multiple NodeJs versions, you can use this command to select the NodeJs v10.23 as the default version:
+```
+nvm use v10.23
+```
+
+(See the full article)[https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04]
+
 
 ### Install an IDE
 You are free to use any IDE for programming. Common choices are:
