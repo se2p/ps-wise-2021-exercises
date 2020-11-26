@@ -22,7 +22,6 @@ LINES_PER_PAGE       =  45
 MAX_SIZE_LINE        =  80
 STOP_FREQUENCY_LIMIT = 100
 
-# Defining a main method makes testing easier
 class WordIndexData:
 
     def __init__(self, word):
@@ -56,7 +55,6 @@ def parse_line(line):
 
 
 def main(file_path):
-    stop_words = []
     word_index = []
 
     current_page = 0
@@ -84,16 +82,11 @@ def main(file_path):
     # Q: Can you find a more python way to rewrite this code?
     word_index = list(filter(lambda data: data.frequency <= STOP_FREQUENCY_LIMIT, word_index))
 
-    # if data.frequency > :
-    #     stop_words.append(word)
-    #     word_index.remove(data)
-
     # Sort the word_index by word. This changes the object itself
     word_index.sort(key=lambda x: x.word, reverse=False)
 
     # Print them
     for data in word_index:
-        # Q10: Is this ('[1:-1]') a violation? What does it even mean ?!
         print(data.word, '-', str(data.pages)[1:-1])
 
 

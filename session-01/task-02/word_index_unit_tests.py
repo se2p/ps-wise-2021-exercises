@@ -14,6 +14,7 @@ from word_index import main as wi_main
 TEST_DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.normpath(os.path.realpath(__file__)))), "test-data")
 
 class TestWordIndex(unittest.TestCase):
+
     def test_output_with_an_empty_file_produces_not_output(self):
         print(inspect.stack()[0][3]) # Print the name of THIS function
 
@@ -50,7 +51,7 @@ class TestWordIndex(unittest.TestCase):
 
         # Check the output is the expected one.
         # https://kapeli.com/cheat_sheets/Python_unittest_Assertions.docset/Contents/Resources/Documents/index
-        self.assertNotIn("Line", output, msg="Output contains filtered word")
+        self.assertNotIn("line", output, msg="Output contains filtered word")
 
 if __name__ == '__main__':
     unittest.main()
