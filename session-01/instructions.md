@@ -199,8 +199,9 @@ Please note that you need to run the PowerShell as administrator to install it. 
 
 #### 3. Install NVM for Windows
 You can use [nvm for Windows](https://github.com/coreybutler/nvm-windows).
-This is not the same thing as nvm for Linux/Mac but it handles quite similar.
-Once nvm for Windows is installed (Instruction can be found in the linked github repo) the basic commands are the same:
+This is not the same thing as `nvm` for Linux/Mac but it handles quite similar cases.
+
+Once `nvm` for Windows is installed (Instructions can be found in the linked GitHub repo) the basic commands are the same:
 ```
 nvm install 10.23
 ```
@@ -210,13 +211,54 @@ nvm use 10.23
 
 
 #### Install NodeJs (Linux)
-If you have nvm already installed run (tested on Ubuntu):
+There are three different ways to install NodeJs on Linux but the best way to be sure about the version 10.23 is via `nvm`.
+
+> NOTE: This tutorial is for Ubuntu 20.04 but you can find the full article (here)[https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04]
+
+If you have `nvm` already installed run (tested on Ubuntu):
 ```
 nvm install v10.23.0
 ```
 
-If you do not have nvm installed follow the instructions listed [here](https://tecadmin.net/install-nodejs-with-nvm/), using the above command in step 3.
+If you do not have `nvm` installed follow the instructions below:
 
+
+##### Install nvm
+
+1. Run one the following commands:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+```
+or
+```
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+```
+2. After that 
+```
+source ~/.bashrc
+```
+3. To see all available versions to install run the following command
+```
+nvm list-remote
+```
+
+Now you have successfully installed `nvm`. To see all installed NodeJs versions on your machine use:
+```
+nvm list
+```
+
+If you have multiple NodeJs versions, remember to select the right version of NodeJs:
+```
+nvm use v10.23
+```
+
+
+##### Additional reading
+
+- [https://github.com/nvm-sh/nvm#installing-and-updating](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [https://tecadmin.net/install-nodejs-with-nvm](https://tecadmin.net/install-nodejs-with-nvm/),
+- [https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04)
 
 
 ### Install an IDE
