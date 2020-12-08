@@ -45,9 +45,6 @@ class TestWordIndexUsingTempFiles(unittest.TestCase):
             wi_main(temp_file)
             output = buf.getvalue()
 
-        print("OUTPUT IS")
-        print(output)
-
         # Make the assertions
         self.assertEqual(output, expected_output, msg="Output does not match")
 

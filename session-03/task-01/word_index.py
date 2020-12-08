@@ -16,9 +16,20 @@ import sys, re
 # Global Constants:
 #   Q1: Do the constants violate the style?
 #   Q2: How could we manage common configurations?
-LINES_PER_PAGE = 45
-MAX_SIZE_LINE = 80
-STOP_FREQUENCY_LIMIT = 100
+# LINES_PER_PAGE = 45
+# MAX_SIZE_LINE = 80
+# STOP_FREQUENCY_LIMIT = 100
+
+# Possible way to encapsulate the configuration
+class Configuration:
+    _PAGE_SIZE = 45
+    _FREQ_LIMIT = 100
+
+    def get_page_size(self):
+        return self._PAGE_SIZE
+
+    def get_freq_limit(self):
+        return self._FREQ_LIMIT
 
 
 class DataStorageManager:
@@ -59,6 +70,7 @@ class WordFrequencyManager:
             self._word_freqs[word] = (1, [page])
 
     def filter_and_sort(self, limit):
+
         # Filtering by frequency
         self._word_freqs = {k: v for k, v in self._word_freqs.items()
                             if v[0] <= limit}  # ??
@@ -94,17 +106,15 @@ def main(file_path):
     wfc = WordFrequencyController(file_path)
     wfc.run()
 
+    # # Solution ok? no!
+    # cfg = Configuration()
+    # dsm = DataStorageManager(cfg, file_path)
+    # wi = WordFrequencyManager(cfg)
+    #
+    # for word in dsm.next_line():
+    #     pass
 
 if __name__ == "__main__":
     main(sys.argv[1])
 
-# Possible way to encapsulate the configuration
-# class Configuration():
-#     _PAGE_SIZE = 45
-#     _FREQ_LIMIT = 100
-#
-#     def get_page_size(self):
-#         return self._PAGE_SIZE
-#
-#     def get_freq_limit(self):
-#         return self._FREQ_LIMIT
+

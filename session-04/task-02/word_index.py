@@ -46,7 +46,7 @@ class DataStorageManager:
         self._data = []
 
         self._event_manager = event_manager
-        self._event_manager.subscribe('load', self.__load)
+        self._event_manager.subscribe('load', self.__load )
         self._event_manager.subscribe('start', self.__produce_tagged_words)
 
 
@@ -94,6 +94,7 @@ class WordIndexManager:
     def _do_all(self, event):
         line_number = event[1]
         word = event[2]
+        # Calling private methods on this/self is ALLOWED
         self.__increment_count(word)
         self.__index_word(line_number, word)
 
@@ -167,8 +168,8 @@ class WordIndexFramework:
         # Note that this is *sync*, so this call returns ONLY after ALL
         #   the registered components have finished to handle the load message
         self._event_manager.publish(('load', path_to_file))
-
         self._event_manager.publish(('start', None))
+
 
 #
 # The main function
@@ -176,11 +177,14 @@ class WordIndexFramework:
 def main(path_to_file):
     em = EventManager()
     #
+
+    # Dependency Injection
     DataStorageManager(em)
     WordIndexManager(em)
     WordPrinter(em)
     WordIndexFramework(em)
-    #
+
+    # This is sync
     em.publish(('run', path_to_file))
 
 

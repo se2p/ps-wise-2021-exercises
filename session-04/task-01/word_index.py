@@ -9,7 +9,7 @@ import sys
 #       abstraction (objects, modules or similar)
 #
 # - The entities are never called on directly for ACTIONS (No Action -> No change state)
-#       - is_ method
+#       - is_method
 #       - getters
 #
 # - The entities provide interfaces for other entities to be
@@ -161,8 +161,10 @@ class WordIndexFramework:
     def run(self, path_to_file):
         for h in self._load_event_handlers:
             h(path_to_file)
+
         for h in self._dowork_event_handlers:
             h()
+
         for h in self._end_event_handlers:
             h()
 
@@ -184,6 +186,9 @@ def main(path_to_file):
 
     # Register for TAGGED_FILTERED_WORD events
     words_printer = WordPrinter(words_index_manager)
+
+
+
 
     # Trigger the events
     wif.run(path_to_file)

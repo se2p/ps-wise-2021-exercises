@@ -3,10 +3,10 @@ import sys
 
 # Monolithic Style Description:
 #
-#  - No abstractions
+#  - No abstractions (do not define classes, modules, or method and functions)
 #  - No use of library functions (Let's start with no USER-DEFINED)
 #
-
+#
 # Global Constants:
 #   Q1: Can those be considered as abstractions? Of which type?
 #   Q2: Do they violate the Monolithic style?
@@ -20,8 +20,7 @@ import sys
 def main(file_path,
          LINES_PER_PAGE = 45,
          MAX_SIZE_LINE = 80,
-         STOP_FREQUENCY_LIMIT = 100
-         ):
+         STOP_FREQUENCY_LIMIT = 100):
 
     # NOTE: we need to reset the value of all the variables because the unit tests do not restart the interpreter
 
@@ -38,19 +37,22 @@ def main(file_path,
 
     # We adopt an approach similar to C. Lopes:
     # 1 - we iterate the file line by line
-    # 2 -     while doing this we keep track on which page (and line) we currently are and parse each word
-    # 3 -     when we parse a new word we store the page on which it appears and increment its frequency
-    # 4 -         if a word appears more than a number of time, it becomes automatically a stop word and must be eliminated/filtered out
+    # 2 -     while doing this we keep track on which page (and line)
+    #               we currently are and parse each word
+    # 3 -     when we parse a new word we store the page on which it
+    #               appears and increment its frequency
+    # 4 -         if a word appears more than a number of time, it becomes
+    #               automatically a stop word and must be eliminated/filtered out
     # 5 - Before printing we sort words alphabetically (all the words are normalized lowercase)
 
     line_index = 0
     current_page = 0
 
-    # In this case, it is not necessary to append the '\n' at the end of the line
     with open(file_path, 'r') as f:
 
         for line in f:
-            # Q5: The line above could have been implemented as: "for line_index, line in enumerate(open(file_path))"
+            # Q5: The line above could have been implemented as:
+            #   "for line_index, line in enumerate(f)"
             # Would have that violated the style? Why?
 
             # If the line is non-terminated we will miss the last word...
@@ -75,8 +77,9 @@ def main(file_path,
                 else:
                     if not c.isalnum():
                         # We found the end of a word. Process it
-                        found = False
                         word = line[start_char:i].lower()
+
+                        found = False
 
                         # Ignore stop words:
                         # Q6: Can the following 'not in' be considered a violation of the style? Why?
@@ -85,6 +88,7 @@ def main(file_path,
                             # Let's see if the word already exists.
                             # Q7: We loop over a COPY of the entire list. Why? Could using slices be considered a
                             #   violation of the style?
+
                             for data in word_index[:]:
                                 # data[0] is the word in lower case
                                 if word == data[0]:
@@ -105,6 +109,7 @@ def main(file_path,
 
                             if not found:
                                 data = [word, 1, [current_page]]
+
                                 inserted = False
                                 index = 0
 
@@ -130,6 +135,8 @@ def main(file_path,
 
             # Move "page-cursor" one line below
             line_index += 1
+
+
 
     for tf in word_index:
         # Q10: Is this ('[1:-1]') a violation? What does it even mean ?!

@@ -10,7 +10,7 @@ import sys, re
 #   are procedures/functions.
 
 # The following functions do not fit well as lambdas
-def init_data_storage_manager(obj, path_to_file):
+def init_data_storage_manager(obj, path_to_file, cfg):
     with open(path_to_file) as f:
         # Q1: Is this a violation of the style? Should we use obj['data'] instead ?
         data = f.read()
@@ -21,7 +21,7 @@ def init_data_storage_manager(obj, path_to_file):
         obj['_lines'][idx] = pattern.sub(' ', obj['_lines'][idx]).lower()
     # Q2: Is this a violation of the style?
     obj['_lines'] = list(filter(lambda x: len(x) > 0, obj['_lines']))
-
+    obj['_configuration'] = cfg
 
 def retrieve_next_line(obj):
     obj['_currentLine'] += 1
@@ -43,15 +43,31 @@ def get_filtered_sorted_output(self_obj):
     return sorted(self_obj['_word_freqs'].items())
 
 
+
+
+
+
+
 def main(file_path):
 
-    # Q1: Here we manually setup the objects. What would be an alternative way of achieving the same?
+    configuration_object = {
+        '_page_size' : 45,
+        'get_page_size': lambda : configuration_object['_page_size']
+    }
+
+
+    # Q1: Here we manually setup the objects.
+    # What would be an alternative way of achieving the same?
     data_storage_manager_object = {
         # Fields declaration
         '_currentLine': 0,
         '_lines': [],
+
+        # THIS IS A VIOLATION
+        '_configuration' : None,
+
         # Methods declaration: here the map CLOSE on itself !
-        'init': lambda path_to_file: init_data_storage_manager(data_storage_manager_object, path_to_file),
+        'init': lambda path_to_file, cfg: init_data_storage_manager(data_storage_manager_object, path_to_file, cfg),
         # Q2: Is this a violation of the style?
         'has_next_line': lambda: data_storage_manager_object['_currentLine'] < len(data_storage_manager_object['_lines']),
         'next_line': lambda: retrieve_next_line(data_storage_manager_object),

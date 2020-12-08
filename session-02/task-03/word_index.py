@@ -17,6 +17,7 @@ STOP_FREQUENCY_LIMIT = 100
 def read_file(path_to_file):
     # Q1: Is this function idempotent?
     # Q2: Is this function pure?
+
     data = []
     with open(path_to_file) as f:
         data = data + list(f.read())
@@ -71,7 +72,21 @@ def print_words(word_freqs):
         print(tf[0], '-', str(tf[2])[1:-1])
 
 
-def main(file_path ):
+def main(file_path):
+    print_words(
+        sort(
+            filter_by_frequency(
+                frequencies(
+                    scan(
+                        filter_chars_and_normalize(
+                            read_file(file_path)
+                        )
+                    )
+                )
+            )
+        )
+    )
+
     # Q7: Does the following code violate the style?
     data       = read_file(file_path)
     data       = filter_chars_and_normalize(data)

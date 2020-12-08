@@ -9,7 +9,7 @@ import sys, re
 # - The larger problem is decomposed into 'things' that make sense for
 #   the problem domain
 #
-# - Each 'thing' is a capsule of data that exposes one single procedure,
+# - Each 'thing' is a capsule of data that exposes one single procedure (dispatch),
 #   namely the ability to receive and dispatch messages that are sent to
 #   it
 #
@@ -20,7 +20,7 @@ class DataStorageManager:
 
     def dispatch(self, message):
         if message[0] == 'init':
-            return self._init(message[1])
+            self._init(message[1])
         elif message[0] == 'has_next_line':
             return self._has_next_line()
         elif message[0] == 'next_line':
@@ -89,6 +89,7 @@ class WordFrequencyManager:
 
 class WordFrequencyController:
 
+    # THE CODE IS ONLY FOR DISPATCHING
     def dispatch(self, message):
         if message[0] == 'init':
             self._init(message[1])
@@ -96,6 +97,9 @@ class WordFrequencyController:
             self._run()
         else:
             print("Cannot understand your message")
+
+
+
 
     def _init(self, path_to_file):
         self._storage_manager = DataStorageManager()
@@ -117,7 +121,9 @@ class WordFrequencyController:
 
 
 def main(file_path):
+    # INSTANTIATION is SEPARATED FROM INITIALIZATION
     word_frequency_controller = WordFrequencyController()
+    #
     word_frequency_controller.dispatch(['init', file_path])
     word_frequency_controller.dispatch(['run'])
 

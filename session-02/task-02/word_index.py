@@ -13,9 +13,11 @@ MAX_SIZE_LINE = 80
 STOP_FREQUENCY_LIMIT = 100
 
 # Global Variables. Be sure to initialize them in the main or the unit tests will start with a polluted state
-data = None
-lines = None
+data       = None
+lines      = None
 word_freqs = None
+
+#
 stop_words = None
 word_index = None
 
@@ -67,7 +69,8 @@ def scan_lines():
 # Q4: Does this procedure violate the style?
 def frequencies():
     """
-    Scan words in each line, count their frequency, update the stop words, store current page if not there yet
+    Scan words in each line, count their frequency,
+    update the stop words, store current page if not there yet
         Read  'lines'
         Writes 'word_freqs', 'stop_words'
     """
@@ -133,6 +136,7 @@ def main(file_path):
     sort()
 
     # Q8: Does this code violate the style?
+    # should I have used a print_all()
     for tf in word_freqs:
         print(tf[0], '-', str(tf[2])[1:-1])
 
