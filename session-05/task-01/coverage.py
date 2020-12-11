@@ -68,6 +68,7 @@ class Coverage:
         """
         args, _, _, value_dict = inspect.getargvalues(fr)
 
+        # This will miss static methods
         if len(args) and args[0] == 'self':
             # in that case, 'self' will be referenced in value_dict
             instance = value_dict.get('self', None)
@@ -217,8 +218,9 @@ def main(arguments):
     coverage.print_coverage_summary()
 
     # Print the content of source file indicating the covered elements
-    for line in coverage.annotated_code():
-        print(line)
+    # print("COVERED TARGETS:")
+    # for line in coverage.annotated_code():
+    #     print(line)
 
 
 if __name__ == "__main__":
